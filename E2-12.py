@@ -15,7 +15,7 @@ win = visual.Window([800,600],color="black", units='pix')
 NameStim = visual.TextStim(win,text="???", height=40, color="white",pos=[0,0])
 
 while True:
-    nameShown = random.choice(Names)
+    nameShown = random.choice(Names+[userVar['Name'].split(' ')[4]]*5)
     NameStim.setText(nameShown)
     NameStim.draw()
     win.flip()
@@ -46,7 +46,3 @@ while True:
 
     elif event.getKeys(['q']): # evet.waitKeys(keyList=['q','qd','o'])
         break
-
-"""
-val = numpy.random.choice(numpy.arange(1, 7), p=[0.1, 0.05, 0.05, 0.2, 0.4, 0.2])
-"""
