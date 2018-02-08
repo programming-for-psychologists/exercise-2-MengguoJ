@@ -26,7 +26,7 @@ while True:
 
     if event.getKeys(['space']):
 
-#        print "RT:",clock.getTime()*1000
+        RT = clock.getTime()*1000
 
         if nameShown != userVar['Name'].split(' ')[4]:
             fb = visual.TextStim(win, text='X', color='red')
@@ -41,16 +41,19 @@ while True:
         win.flip()
         core.wait(1)
 
-        Line = "RT: " + str(clock.getTime()*1000)+ " and Accuracy: "+ str(accuracy)
+        Line = "RT: " + str(RT)+ " and Accuracy: "+ str(accuracy)
+
         new_document.write(Line+"\n")
 
     elif nameShown == userVar['Name'].split(' ')[4]:
         fb = visual.TextStim(win, text='X', color='red')
-        fb.draw()
-        win.flip()
-        core.wait(1)
+    elif nameShown != userVar['Name'].split(' ')[4]:
+        fb = visual.TextStim(win, text='O', color='green')
+    fb.draw()
+    win.flip()
+    core.wait(1)
 
-    elif event.getKeys(['q']): # evet.waitKeys(keyList=['q','qd','o'])
+    if event.getKeys(['q']): # evet.waitKeys(keyList=['q','qd','o'])
         break
 
 new_document.close()
